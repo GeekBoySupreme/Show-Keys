@@ -8,5 +8,8 @@
         "matches":["<all_urls>"],
         "js":["index.js"]
       }
-  ]
+  ],
+  "background": {
+      "scripts": ["background.js"]
+  }
 }
