@@ -104,8 +104,38 @@ const css = `
     align-items: center;
     color: #2e2e2e;
     background: #ffffff;
+    background: radial-gradient(circle, rgba(255,255,255,1) 0%, rgba(255,245,205,1) 10%, rgba(255,208,173,1) 100%);
     border-radius: 5px;
   }
+   @media (prefers-color-scheme: dark) {
+    [data-keys] {
+      display: flex;
+      background: #ffffff;
+      border-radius: 6px;
+      position: fixed;
+      z-index: 1000000;
+      top: 20px;
+      right: 20px;
+      padding: 6px;
+      font-size: 24px;
+      font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
+        Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
+      animation: keys-zoom-in 50ms;
+    }
+    [data-keys] [data-key] {
+        height: 58px;
+        min-width: 58px;
+        padding: 24px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        color: #ffffff;
+        background: #2e2e2e;
+        background: radial-gradient(circle, rgba(49,49,49,1) 0%, rgba(52,52,52,1) 10%, rgba(0,0,0,1) 100%);
+        border-radius: 5px;
+      }
+
+
   @keyframes keys-zoom-in {
     from {
       transform: scale(0.9);
@@ -113,6 +143,7 @@ const css = `
     100% {
     }
   }
+}
 `;
 
 const insertCSS = () => {
