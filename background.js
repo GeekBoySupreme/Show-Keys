@@ -1,6 +1,7 @@
 let flag = 0;
 
 chrome.browserAction.onClicked.addListener(toggleShowKeys);
+chrome.tabs.onCreated.addListener(toggleShowKeys);
 
 function toggleShowKeys() {
   if (flag == 0) flag = 1;

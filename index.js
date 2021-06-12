@@ -77,13 +77,14 @@ const handler = (event) => {
 const css = `
   [data-keys] {
     display: flex;
-    background: #2e2e2e;
-    border-radius: 6px;
+    background: rgba(0, 0, 0, 0.5);
+    backdrop-filter: blur(11px);
+    border-radius: 5px;
     position: fixed;
     z-index: 1000000;
     top: 20px;
     right: 20px;
-    padding: 8px;
+    padding: 6px;
     font-size: 24px;
     font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
       Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
@@ -98,7 +99,7 @@ const css = `
   [data-keys] [data-key] {
     height: 58px;
     min-width: 58px;
-    padding: 22px;
+    padding: 26px;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -110,8 +111,9 @@ const css = `
    @media (prefers-color-scheme: dark) {
     [data-keys] {
       display: flex;
-      background: #ffffff;
-      border-radius: 6px;
+      background: rgba(255, 255, 255, 0.5);
+      backdrop-filter: blur(11px);
+      border-radius: 5px;
       position: fixed;
       z-index: 1000000;
       top: 20px;
@@ -125,7 +127,7 @@ const css = `
     [data-keys] [data-key] {
         height: 58px;
         min-width: 58px;
-        padding: 24px;
+        padding: 26px;
         display: flex;
         justify-content: center;
         align-items: center;
