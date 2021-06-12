@@ -1,17 +1,12 @@
 chrome.runtime.onMessage.addListener(keyToggle);
 
 let toggle_state = 0;
-console.log(toggle_state);
 
-function keyToggle(togglekey, sender, sendResponse) {
-  console.log(togglekey.message);
-
+function keyToggle(togglekey) {
   if (togglekey.state == 1) {
     toggle_state = 1;
-    console.log(toggle_state);
   } else if (togglekey.state == 0) {
     toggle_state = 0;
-    console.log(toggle_state);
   }
 }
 
@@ -158,7 +153,6 @@ const render = () => {
   }
 };
 
-console.log(toggle_state);
 if (typeof window !== "undefined") {
   window.addEventListener("keydown", handler);
   insertCSS();
