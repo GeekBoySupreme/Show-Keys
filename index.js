@@ -80,6 +80,7 @@ const css = `
     background: #2e2e2e;
     border-radius: 10px;
     position: fixed;
+    z-index: 1000000;
     top: 20px;
     right: 20px;
     padding: 10px 10px 12px;

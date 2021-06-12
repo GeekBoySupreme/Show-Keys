@@ -2,7 +2,7 @@ let flag = 0;
 
 chrome.browserAction.onClicked.addListener(toggleShowKeys);
 
-function toggleShowKeys(tab) {
+function toggleShowKeys() {
   if (flag == 0) flag = 1;
   else if (flag == 1) flag = 0;
 
@@ -13,7 +13,13 @@ function toggleShowKeys(tab) {
 
   setIconNew(flag);
 
-  chrome.tabs.sendMessage(tab.id, toggle);
+  // chrome.tabs.sendMessage(tab.id, toggle);
+
+  chrome.tabs.query({}, function (tabs) {
+    for (var i = 0; i < tabs.length; ++i) {
+      chrome.tabs.sendMessage(tabs[i].id, toggle);
+    }
+  });
 }
 
 function setIconNew(value) {
