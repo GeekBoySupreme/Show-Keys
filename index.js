@@ -1,3 +1,20 @@
+chrome.runtime.onMessage.addListener(keyToggle);
+
+let toggle_state = 0;
+console.log(toggle_state);
+
+function keyToggle(togglekey, sender, sendResponse) {
+  console.log(togglekey.message);
+
+  if (togglekey.state == 1) {
+    toggle_state = 1;
+    console.log(toggle_state);
+  } else if (togglekey.state == 0) {
+    toggle_state = 0;
+    console.log(toggle_state);
+  }
+}
+
 const prettyMap = {
   ArrowUp: "↑",
   ArrowRight: "→",
@@ -51,14 +68,14 @@ const handler = (event) => {
       else if (new Date() - appearedAt < 1000) dismissAfterTimeout();
       else {
         keys = [];
-        render();
+        if (toggle_state == 1) render();
       }
     }, 1000);
   };
 
   keys = newKeys;
   appearedAt = new Date();
-  render();
+  if (toggle_state == 1) render();
   dismissAfterTimeout();
 };
 
@@ -67,7 +84,7 @@ const css = `
     display: flex;
     background: #2e2e2e;
     border-radius: 10px;
-    position: absolute;
+    position: fixed;
     top: 20px;
     right: 20px;
     padding: 10px 10px 12px;
@@ -141,6 +158,7 @@ const render = () => {
   }
 };
 
+console.log(toggle_state);
 if (typeof window !== "undefined") {
   window.addEventListener("keydown", handler);
   insertCSS();
