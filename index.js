@@ -78,12 +78,12 @@ const css = `
   [data-keys] {
     display: flex;
     background: #2e2e2e;
-    border-radius: 10px;
+    border-radius: 6px;
     position: fixed;
     z-index: 1000000;
     top: 20px;
     right: 20px;
-    padding: 10px 10px 12px;
+    padding: 8px;
     font-size: 24px;
     font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
       Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
@@ -96,18 +96,15 @@ const css = `
     margin-left: 10px;
   }
   [data-keys] [data-key] {
-    height: 54px;
-    min-width: 54px;
-    padding: 20px;
+    height: 58px;
+    min-width: 58px;
+    padding: 22px;
     display: flex;
     justify-content: center;
     align-items: center;
     color: #2e2e2e;
-    background: linear-gradient(#fff, #dadada);
+    background: #ffffff;
     border-radius: 5px;
-    border-top: 1px solid #f5f5f5;
-    box-shadow: inset 0 0 25px #e8e8e8, 0 1px 0 #c3c3c3, 0 4px 0 #c9c9c9;
-    text-shadow: 0px 1px 0px #f5f5f5;
   }
   @keyframes keys-zoom-in {
     from {

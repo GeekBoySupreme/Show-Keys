@@ -1,8 +1,8 @@
 {
   "manifest_version": 2,
   "name": "Show Keys",
-  "version": "0.0.1",
-  "description": "Show keys as you type.",
+  "version": "1.0.0",
+  "description": "Show keys as you type",
   "content_scripts":[
       {
         "matches":["<all_urls>"],
