@@ -1,6 +1,7 @@
 chrome.runtime.onMessage.addListener(keyToggle);
 
 let toggle_state = 0;
+console.log(toggle_state);
 
 function keyToggle(togglekey) {
   if (togglekey.state == 1) {
@@ -8,6 +9,8 @@ function keyToggle(togglekey) {
   } else if (togglekey.state == 0) {
     toggle_state = 0;
   }
+
+  console.log(toggle_state);
 }
 
 const prettyMap = {
