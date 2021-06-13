@@ -29,11 +29,13 @@ function setIconNew(value) {
 }
 
 function tabSync(toggle) {
-  setInterval(function () {
-    chrome.tabs.query({}, function (tabs) {
-      for (var i = 0; i < tabs.length; ++i) {
-        chrome.tabs.sendMessage(tabs[i].id, toggle);
-      }
-    });
-  }, 100);
+  if (flag == 1) {
+    setInterval(function () {
+      chrome.tabs.query({}, function (tabs) {
+        for (var i = 0; i < tabs.length; ++i) {
+          chrome.tabs.sendMessage(tabs[i].id, toggle);
+        }
+      });
+    }, 100);
+  }
 }
