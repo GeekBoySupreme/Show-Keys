@@ -28,8 +28,9 @@ function setIconNew(value) {
     chrome.browserAction.setIcon({
       path: { 19: "showkeys_16.png", 38: "showkeys_32.png" },
     });
-  else if (value == 1)
+  else if (value == 1) {
     chrome.browserAction.setIcon({
       path: { 19: "showkeys_blue_16.png", 38: "showkeys_blue_32.png" },
     });
+  }
 }
