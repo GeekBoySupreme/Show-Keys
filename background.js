@@ -1,7 +1,7 @@
 let flag = 0;
 
 chrome.browserAction.onClicked.addListener(toggleShowKeys);
-chrome.tabs.onCreated.addListener(toggleShowKeys);
+//chrome.tabs.onCreated.addListener(toggleShowKeys);
 
 function toggleShowKeys() {
   if (flag == 0) flag = 1;
@@ -13,14 +13,7 @@ function toggleShowKeys() {
   };
 
   setIconNew(flag);
-
-  // chrome.tabs.sendMessage(tab.id, toggle);
-
-  chrome.tabs.query({}, function (tabs) {
-    for (var i = 0; i < tabs.length; ++i) {
-      chrome.tabs.sendMessage(tabs[i].id, toggle);
-    }
-  });
+  tabSync(toggle);
 }
 
 function setIconNew(value) {
@@ -33,4 +26,14 @@ function setIconNew(value) {
       path: { 19: "showkeys_blue_16.png", 38: "showkeys_blue_32.png" },
     });
   }
+}
+
+function tabSync(toggle) {
+  setInterval(function () {
+    chrome.tabs.query({}, function (tabs) {
+      for (var i = 0; i < tabs.length; ++i) {
+        chrome.tabs.sendMessage(tabs[i].id, toggle);
+      }
+    });
+  }, 100);
 }
