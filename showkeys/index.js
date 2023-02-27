@@ -1,7 +1,7 @@
 chrome.runtime.onMessage.addListener(keyToggle);
 
+
 let toggle_state = 0;
-console.log(toggle_state);
 
 function keyToggle(togglekey) {
   if (togglekey.state == 1) {
@@ -9,8 +9,6 @@ function keyToggle(togglekey) {
   } else if (togglekey.state == 0) {
     toggle_state = 0;
   }
-
-  console.log(toggle_state);
 }
 
 const prettyMap = {
@@ -82,12 +80,12 @@ const css = `
     display: flex;
     background: rgba(0, 0, 0, 0.5);
     backdrop-filter: blur(11px);
-    border-radius: 5px;
+    border-radius: 12px;
     position: fixed;
     z-index: 1000000;
     top: 20px;
     right: 20px;
-    padding: 6px;
+    padding: 3px;
     font-size: 24px;
     font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
       Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
@@ -109,7 +107,7 @@ const css = `
     color: #2e2e2e;
     background: #ffffff;
     background: radial-gradient(circle, rgba(255,255,255,1) 0%, rgba(255,245,205,1) 10%, rgba(255,208,173,1) 100%);
-    border-radius: 5px;
+    border-radius: 4px;
   }
    @media (prefers-color-scheme: dark) {
     [data-keys] {
