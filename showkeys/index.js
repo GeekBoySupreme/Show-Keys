@@ -78,9 +78,10 @@ const handler = (event) => {
 const css = `
   [data-keys] {
     display: flex;
+    gap: 4px;
     background: rgba(0, 0, 0, 0.5);
     backdrop-filter: blur(11px);
-    border-radius: 12px;
+    border-radius: 6px;
     position: fixed;
     z-index: 1000000;
     top: 20px;
@@ -94,13 +95,9 @@ const css = `
   [data-keys][data-children="0"] {
     opacity: 0;
   }
-  [data-keys] [data-key] + [data-key] {
-    margin-left: 10px;
-  }
   [data-keys] [data-key] {
     height: 58px;
     min-width: 58px;
-    padding: 26px;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -109,34 +106,15 @@ const css = `
     background: radial-gradient(circle, rgba(255,255,255,1) 0%, rgba(255,245,205,1) 10%, rgba(255,208,173,1) 100%);
     border-radius: 4px;
   }
-   @media (prefers-color-scheme: dark) {
+  @media (prefers-color-scheme: dark) {
     [data-keys] {
-      display: flex;
       background: rgba(255, 255, 255, 0.5);
-      backdrop-filter: blur(11px);
-      border-radius: 5px;
-      position: fixed;
-      z-index: 1000000;
-      top: 20px;
-      right: 20px;
-      padding: 6px;
-      font-size: 24px;
-      font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
-        Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
-      animation: keys-zoom-in 50ms;
     }
     [data-keys] [data-key] {
-        height: 58px;
-        min-width: 58px;
-        padding: 26px;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        color: #ffffff;
-        background: #2e2e2e;
-        background: radial-gradient(circle, rgba(49,49,49,1) 0%, rgba(52,52,52,1) 10%, rgba(0,0,0,1) 100%);
-        border-radius: 5px;
-      }
+      color: #ffffff;
+      background: #2e2e2e;
+      background: radial-gradient(circle, rgba(49,49,49,1) 0%, rgba(52,52,52,1) 10%, rgba(0,0,0,1) 100%);
+    }
 
 
   @keyframes keys-zoom-in {
@@ -175,13 +153,16 @@ const ensureContainer = () => {
 const render = () => {
   const container = ensureContainer();
 
-  if (keys.length === 0) container.outerHTML = ``;
-  else {
-    container.outerHTML = `
-      <div data-keys>
-        ${keys.map((key) => `<div data-key>${key}</div>`)}
-      </div>
-    `;
+  if (keys.length === 0) {
+    container.parentNode.removeChild(container);
+  } else {
+    container.textContent = "";
+    keys.forEach(key => {
+      const keyEl = document.createElement("div");
+      keyEl.setAttribute("data-key", "");
+      keyEl.textContent = key;
+      container.appendChild(keyEl);
+    });
   }
 };
 
